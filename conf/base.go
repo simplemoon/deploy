@@ -216,9 +216,9 @@ func IsRemoteModel() bool {
 
 // 加载所有数据
 func LoadAll() error {
-	err := loadBase()
-	if err != nil {
-		return err
-	}
+	//err := loadBase()
+	//if err != nil {
+	//	return err
+	//}
 	return nil
 }

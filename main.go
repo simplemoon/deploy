@@ -48,7 +48,7 @@ func main() {
 		return
 	}
 	// 创建一些必要的文件夹
-	err = utils.CreateDirs(conf.GetRootDir())
+	err = utils.CreateDirs()
 	if err != nil {
 		log.FormatErr(err)
 		return

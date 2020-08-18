@@ -59,8 +59,8 @@ func (ds *DataSet) GetServerId() int {
 	}
 }
 
+// 加载基础的配置
 func loadBase() error {
-	// TODO: load config
 	baseJson, err := utils.GetCfgPath(FileNameBase)
 	if err != nil {
 		return err
