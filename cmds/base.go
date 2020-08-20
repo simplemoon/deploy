@@ -96,13 +96,18 @@ func (bc CommandBase) Check(ds *conf.DataSet) error {
 	if err != nil {
 		return err
 	}
+	return bc.CheckByIndex(serverId, idx)
+}
+
+// 通过ID来检查
+func (bc CommandBase) CheckByIndex(serverId, index int) error {
 	// 检查文件夹是否存在
-	if idx <= 0 {
+	if index <= 0 {
 		return fmt.Errorf("get %d index failed", serverId)
 	}
 	// 检查server文件夹是否存在
-	if !utils.CheckServerDirExist(idx) {
-		return fmt.Errorf("server%d path not found", serverId)
+	if !utils.CheckServerDirExist(index) {
+		return fmt.Errorf("server %d path not found", serverId)
 	}
 	return nil
 }

@@ -82,6 +82,12 @@ func CheckServerDirExist(idx int) bool {
 	return IsPathExist(GetServerDir(idx))
 }
 
+// 获取ini配置路径
+func GetServerIniConfigPath(name string, idx int) string {
+	serverDir := GetServerDir(idx)
+	return path.Join(serverDir, name)
+}
+
 // 创建需要的文件夹
 func CreateDirs() error {
 	// 运行时目录

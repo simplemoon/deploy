@@ -11,6 +11,7 @@ import (
 
 // 链接的状态
 const (
+	ConnectStateOpened   = "Opened"
 	ConnectStateFailed   = "NotConnect"
 	ConnectStateWriteErr = "WriteFailed"
 	ConnectStateReadErr  = "ReadFailed"
@@ -97,4 +98,11 @@ func (t *TelnetHelper) connect() error {
 		t.reader = bufio.NewReader(t.conn)
 	}
 	return nil
+}
+
+// 关闭
+func (t *TelnetHelper) Close() {
+	t.conn.Close()
+	// 设置为nil, 方便下次重连
+	t.conn = nil
 }
