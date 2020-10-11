@@ -1,0 +1,67 @@
+{
+    "base": [
+        {
+            "name": "sd_log",
+            "key": null
+        }
+    ],
+    "server": [
+        {
+            "name": "sd_game",
+            "key": null
+        },
+        {
+            "name": "sd_db",
+            "key": null
+        },
+        {
+            "name": "sd_share",
+            "key": null
+        },
+        {
+            "name": "sd_sns",
+            "key": null
+        },
+        {
+            "name": "sd_snsdb",
+            "key": null
+        },
+        {
+            "name": "sd_scene",
+            "key": "member",
+            "max": 8
+        },
+        {
+            "name": "sd_gate",
+            "key": "entryNum",
+            "max": 2
+        }
+    ],
+    "charge": [
+        {
+            "name": "sd_login",
+            "key": null
+        },
+        {
+            "name": "sd_gm",
+            "key": null
+        }
+    ],
+    "platform": [
+        {
+            "name": "sd_roommgr",
+            "key": null
+        },
+        {
+            "name": "sd_roomdb",
+            "key": null
+        }
+    ],
+    "room": [
+        {
+            "name": "sd_room",
+            "key": "roomNum",
+            "max": 4
+        }
+    ]
+}

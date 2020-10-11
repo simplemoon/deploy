@@ -1,14 +1,11 @@
 package log
 
 import (
-	"encoding/json"
-	"fmt"
 	"os"
-	"strings"
 	"sync"
 
-	"github.com/simplemoon/deploy/report"
 	"github.com/simplemoon/deploy/utils"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -67,19 +64,4 @@ func (c *Caches) GetLogger(serverId int, isDebug bool) *logrus.Logger {
 // 创建一个logger
 func CreateLogger(serverId int, isDebug bool) *logrus.Logger {
 	return cache.GetLogger(serverId, isDebug)
-}
-
-// 报告错误
-func FormatErr(v interface{}) {
-	msg := fmt.Sprintf("%v", v)
-	msg = strings.Replace(msg, "'", "", -1)
-	// 创建一个结果
-	r := report.NewErrReport(msg)
-	// 反序列化成字符串
-	info, err := json.Marshal(r)
-	if err != nil {
-		fmt.Println("json marshal failed ", err)
-		return
-	}
-	fmt.Fprintf(os.Stderr, "%s", info)
 }

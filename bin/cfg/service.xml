@@ -1,0 +1,12 @@
+<configuration>
+
+    <id>${service_id}</id>
+    <name>${service_name}</name>
+    <description></description>
+    <executable>%BASE%\..\${target}.exe</executable>
+    <argument>%BASE%\..\configs\${ini_target}.ini</argument>
+    <startmode>Manual</startmode>
+    <stoptimeout>5sec</stoptimeout>
+    <logpath>%BASE%\logs</logpath>
+
+</configuration>

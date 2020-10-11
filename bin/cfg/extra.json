@@ -1,0 +1,9 @@
+{
+    "extra/sd_login.properties": {
+        "${server_id}": "$serverId",
+        "${dhLog}": "$dbLog"
+    },
+    "extra/log4plush.properties": {
+        "${dhLog}": "$dbLog"
+    }
+}

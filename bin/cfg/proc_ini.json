@@ -1,0 +1,652 @@
+{
+    "bin64/configs/sd_game.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "ServerName": "$serverName",
+            "DistrictID": "$zoneId",
+            "MaxPlayers": "$maxPlayer",
+            "PlayerQueue": "$enableQueue"
+        },
+        "Login": {
+            "Inuse": "$isCharge",
+            "Addr": "$innerIp",
+            "Port": "$_login_MainPort"
+        },
+        "GmExtra": {
+            "Inuse": "$isCharge",
+            "Addr": "$innerIp",
+            "Port": "$_gm_MainPort"
+        },
+        "Platform": {
+            "Addr": "$worldPlatformIp",
+            "Port": "$worldPlatformPort",
+            "Inuse": "$isWorldPlatform"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_game_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_game_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_share.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_share_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_share_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_db.ini": {
+        "Account": {
+            "ConnectString": "$nxdistrictSqlConnect"
+        },
+        "Role": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Log": {
+            "ConnectString": "$nxlogSqlConnect"
+        },
+        "Public": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Manage": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_db_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_db_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        },
+        "Wake": {
+            "Addr": "$innerIp",
+            "Port": "$_db_WakePort"
+        }
+    },
+    "bin64/configs/sd_sns.ini": {
+        "Sns": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_sns_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_sns_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_snsdb.ini": {
+        "Sns": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_snsdb_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_snsdb_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        },
+        "Wake": {
+            "Addr": "$innerIp",
+            "Port": "$_snsdb_WakePort"
+        }
+    },
+    "bin64/configs/sd_login.ini": {
+        "Main": {
+            "msgsize": "$msgSize",
+            "log_level": "$logLevel",
+            "ip": "$innerIp",
+            "port": "$_login_MainPort"
+        },
+        "Cas": {
+            "verifyUrl": "$verifyUrl"
+        },
+        "Http": {
+            "ip": "$innerIp",
+            "port": "$_login_HttpPort"
+        },
+        "Echo": {
+            "addr": "$innerIp",
+            "port": "$_login_EchoPort"
+        }
+    },
+    "bin64/configs/sd_gm.ini": {
+        "Main": {
+            "gamename": "$serverName",
+            "msgsize": "$msgSize",
+            "log_level": "$logLevel",
+            "ip": "$innerIp",
+            "port": "$_gm_MainPort"
+        },
+        "Http": {
+            "ip": "$innerIp",
+            "port": "$_gm_HttpPort",
+            "gameId": "$gameId",
+            "serverId": "$serverId",
+            "profileUrl": "$profileUrl",
+            "noticeUrl": "$noticeUrl",
+            "giftUrl": "$giftUrl",
+            "activityUrl": "$activityUrl",
+            "mallUrl": "$mallUrl",
+            "mailConfirmUrl": "$mailConfirmUrl",
+            "cmdConfirmUrl": "$cmdConfirmUrl",
+            "goodsUrl": "$goodsUrl",
+            "preOrderUrl": "$preOrderUrl",
+            "orderStateUrl": "$orderStateUrl",
+            "rebateInfoUrl": "$rebateInfoUrl",
+            "rebatePickUrl": "$rebatePickUrl",
+            "faceConfirmUrl": "$faceConfirmUrl",
+            "rolePermissionUrl": "$rolePermissionUrl",
+            "queryRCAccountUrl": "$queryRCAccountUrl",
+            "queryRCPlayerDataUrl": "$queryRCPlayerDataUrl",
+            "reqRCTakeRewardUrl": "$reqRCTakeRewardUrl",
+            "queryRoleIDUrl": "$queryRoleIDUrl",
+            "SyncServerStateUrl": "$SyncServerStateUrl",
+            "RoleOnlineStateUrl": "$RoleOnlineStateUrl",
+            "RoleOfflineStateUrl": "$RoleOfflineStateUrl",
+            "roleSuperviseLevelUrl": "$roleSuperviseLevelUrl",
+            "SensitiveWordUrl": "$SensitiveWordUrl",
+            "mappingProductsUrl": "$mappingProductsUrl",
+            "updateSvipRoleInfo": "$updateSvipRoleInfo",
+            "syncServerOpenTimeUrl": "$syncServerOpenTimeUrl",
+            "syncServerArgsUrl": "$syncServerArgsUrl"
+        },
+        "RPC": {
+            "addr": "$innerIp",
+            "port": "$_gm_RpcPort"
+        },
+        "Echo": {
+            "addr": "$innerIp",
+            "port": "$_gm_EchoPort"
+        }
+    },
+    "bin64/configs/sd_gate1.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MaxConnects": "$maxConnects",
+            "EntryID": 1
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_gate1_OuterPort"
+        },
+        "Outer": {
+            "Port": "$_gate1_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_gate1_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_gate1_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_gate2.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MaxConnects": "$maxConnects",
+            "EntryID": 2
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_gate2_OuterPort"
+        },
+        "Outer": {
+            "Port": "$_gate2_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_gate2_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_gate2_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene1.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 0
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene1_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene1_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene2.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 1
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene2_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene2_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene3.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 2
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene3_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene3_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene4.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 3
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene4_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene4_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene5.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 4
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene5_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene5_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene6.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 5
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene6_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene6_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene7.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 6
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene7_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene7_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_scene8.ini": {
+        "Main": {
+            "ServerID": "$serverId",
+            "DistrictID": "$zoneId",
+            "MemberID": 7
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_scene8_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_scene8_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$_game_BroadcastPort"
+        }
+    },
+    "bin64/configs/sd_roommgr.ini": {
+        "Main": {
+            "PlatformID": "$platformId"
+        },
+        "Platform_Outer": {
+            "Addr": "$innerIp",
+            "Port": "$_roommgr_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_roommgr_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_roommgr_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        }
+    },
+    "bin64/configs/sd_roomdb.ini": {
+        "Main": {
+            "PlatformID": "$platformId"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_roomdb_InnerPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_roomdb_EchoPort"
+        },
+        "Share": {
+            "ConnectString": "$nxbaseSqlConnect"
+        },
+        "Wake": {
+            "Addr": "$innerIp",
+            "Port": "$_roomdb_WakePort"
+        }
+    },
+    "bin64/configs/sd_room1.ini": {
+        "Main": {
+            "PlatformID": "$platformId",
+            "RoomServerID": "1"
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_room1_OuterPort"
+        },
+        "Room_Outer": {
+            "Port": "$_room1_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_room1_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_room1_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        }
+    },
+    "bin64/configs/sd_room2.ini": {
+        "Main": {
+            "PlatformID": "$platformId",
+            "RoomServerID": "2"
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_room2_OuterPort"
+        },
+        "Room_Outer": {
+            "Port": "$_room2_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_room2_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_room2_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        }
+    },
+    "bin64/configs/sd_room3.ini": {
+        "Main": {
+            "PlatformID": "$platformId",
+            "RoomServerID": "3"
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_room3_OuterPort"
+        },
+        "Room_Outer": {
+            "Port": "$_room3_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_room3_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_room3_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        }
+    },
+    "bin64/configs/sd_room4.ini": {
+        "Main": {
+            "PlatformID": "$platformId",
+            "RoomServerID": "4"
+        },
+        "WLAN": {
+            "Addr": "$outerIp",
+            "Port": "$_room4_OuterPort"
+        },
+        "Room_Outer": {
+            "Port": "$_room4_OuterPort"
+        },
+        "Inner": {
+            "Addr": "$innerIp",
+            "Port": "$_room4_InnerPort"
+        },
+        "Echo": {
+            "Addr": "$innerIp",
+            "Port": "$_room4_EchoPort"
+        },
+        "Broadcast": {
+            "Addr": "$broadcastIp",
+            "Port": "$broadcastPort"
+        }
+    },
+    "bin64/configs/launchlog.properties": {
+    },
+    "extra/gm.ini": {
+        "GMDefault": {
+            "Value": "$gmLevel"
+        }
+    },
+    "extra/game.ini": {
+        "game_info": {
+            "platform_id": "$chatServerId",
+            "game_server": "$serverId",
+            "game_id": "$gameId",
+            "log_level": "$logLevel"
+        }
+    },
+    "tools/SdDebugger/debug_scene1.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene1_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene2.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene2_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene3.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene3_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene4.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene4_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene5.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene5_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene6.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene6_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene7.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene7_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene8.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_scene8_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_room1.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_room1_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_room2.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_room2_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_game.ini": {
+        "Maintain": {
+            "IP": "$innerIp",
+            "Port": "$_game_EchoPort"
+        }
+    },
+    "tools/SdDebugger/debug_scene1.exe": {
+    },
+    "tools/SdDebugger/debug_game.exe": {
+    },
+    "tools/SdDebugger/debug_room1.exe": {
+    },
+    "tools/SdDebugger/debug_room2.exe": {
+    },
+    "tools/SdDebugger/debug_room3.exe": {
+    },
+    "tools/SdDebugger/debug_room4.exe": {
+    }
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "key": "gameId",
+        "reportKey": "gameId",
+        "countKey": ""
+    },
+    {
+        "key": "serverId",
+        "reportKey": "serverId",
+        "countKey": ""
+    },
+    {
+        "key": "_gm_RpcPort",
+        "reportKey": "adminPort",
+        "countKey": ""
+    },
+    {
+        "key": "_roommgr_OuterPort",
+        "reportKey": "platformPort",
+        "countKey": ""
+    },
+    {
+        "key": "version",
+        "reportKey": "resVersion",
+        "countKey": ""
+    },
+    {
+        "key": "_gate%d_OuterPort",
+        "reportKey": "entryPorts",
+        "countKey": "entryNum"
+    },
+    {
+        "key": "_room%d_OuterPort",
+        "reportKey": "roomPorts",
+        "countKey": "roomNum"
+    }
+]

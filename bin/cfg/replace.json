@@ -1,0 +1,9 @@
+{
+    "excludePath": [
+        "extra/",
+        "extra/OPActivity/"
+    ],
+    "includes": [
+        "srvs/data.fsp"
+    ]
+}

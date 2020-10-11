@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/simplemoon/deploy/log"
 	"github.com/simplemoon/deploy/utils"
 )
 
@@ -64,27 +63,27 @@ func requestIfTooLong() bool {
 	// base64 解密数据
 	data, err := base64.StdEncoding.DecodeString(cmdArgs.urlKey)
 	if err != nil {
-		log.FormatErr(err)
+		FormatErr(err)
 		return false
 	}
 	// 获取对应的内容
 	resp, err := http.Get(string(data))
 	if err != nil {
-		log.FormatErr(err)
+		FormatErr(err)
 		return false
 	}
 	defer resp.Body.Close()
 	// 获取得到的内容
 	content, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.FormatErr(err)
+		FormatErr(err)
 		return false
 	}
 	// 解析对应的参数
 	result := strings.Fields(string(content))
 	err = flag.CommandLine.Parse(result[2:])
 	if err != nil {
-		log.FormatErr(err)
+		FormatErr(err)
 		return false
 	}
 	return true
@@ -115,7 +114,7 @@ func PrePare() bool {
 	// 配置信息解析
 	content, err := getContent()
 	if err != nil {
-		log.FormatErr(err)
+		FormatErr(err)
 		return false
 	}
 	// 获取 content 的内容
@@ -124,7 +123,7 @@ func PrePare() bool {
 		// 说明是一个数组list，单个
 		err := json.Unmarshal(content, &serverCfg)
 		if err != nil {
-			log.FormatErr(err)
+			FormatErr(err)
 			return false
 		}
 	case '{':
@@ -132,13 +131,13 @@ func PrePare() bool {
 		result := make(map[string]interface{})
 		err := json.Unmarshal(content, &result)
 		if err != nil {
-			log.FormatErr(err)
+			FormatErr(err)
 			return false
 		}
 		serverCfg = append(serverCfg, result)
 	default:
 		// 说明解析错误了
-		log.FormatErr("json content error")
+		FormatErr("json content error")
 		return false
 	}
 	return true
@@ -216,9 +215,14 @@ func IsRemoteModel() bool {
 
 // 加载所有数据
 func LoadAll() error {
-	//err := loadBase()
-	//if err != nil {
-	//	return err
-	//}
+	err := loadBase()
+	if err != nil {
+		return err
+	}
+	err = loadProcCfg()
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

@@ -57,22 +57,42 @@ func NewTelnet(addr string, port int) *TelnetHelper {
 }
 
 // 发送命令
-func (t *TelnetHelper) Send(cmd string) string {
+func (t *TelnetHelper) innerSend(cmd string, flag byte) (string, error) {
 	// 连接一下
 	err := t.connect()
 	if err != nil {
-		return ConnectStateFailed
+		return ConnectStateFailed, err
 	}
 	// 写入对应的数据
 	cmd = fmt.Sprintf("%s\r\n", cmd)
 	_, err = t.conn.Write([]byte(cmd))
 	if err != nil {
-		return ConnectStateWriteErr
+		return ConnectStateWriteErr, err
 	}
 	// 等待返回啊
-	result, err := t.reader.ReadString('}')
+	result, err := t.reader.ReadString(flag)
 	if err != nil {
-		return ConnectStateReadErr
+		return ConnectStateReadErr, err
+	}
+	return result, nil
+}
+
+// 发送命令
+func (t *TelnetHelper) Send(cmd string) string {
+	// 连接一下
+	result, err := t.innerSend(cmd, '\r')
+	if err != nil {
+		return result
+	}
+	return result
+}
+
+// 发送命令
+func (t *TelnetHelper) SendQueryStatus(cmd string) string {
+	// 等待返回啊
+	result, err := t.innerSend(cmd, '}')
+	if err != nil {
+		return result
 	}
 	// 加载对应的数据
 	infos := make(map[string]string, 0)

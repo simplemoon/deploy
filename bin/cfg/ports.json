@@ -1,0 +1,86 @@
+{
+    "base": {
+        "PortStart": 10000,
+        "PortStep": 500,
+    },
+    "replace": {
+        "gate": {
+            "Outer": 7001,
+            "MaxCnt": 2
+        },
+        "room": {
+            "Outer": 2001,
+            "MaxCnt": 4
+        }
+    },
+    "data": {
+        "game": {
+            "Broadcast": 0,
+            "Inner": 1,
+            "Echo": 2
+        },
+        "share": {
+            "Inner": 10,
+            "Echo": 11
+        },
+        "db": {
+            "Inner": 20,
+            "Echo": 21,
+            "Wake": 22
+        },
+        "sns": {
+            "Inner": 40,
+            "Echo": 41
+        },
+        "snsdb": {
+            "Inner": 50,
+            "Echo": 51,
+            "Wake": 52
+        },
+        "snsmgr": {
+            "Inner": 60,
+            "Echo": 61
+        },
+        "gm": {
+            "Main": 70,
+            "Echo": 71,
+            "Http": 72,
+            "Rpc": 73
+        },
+        "login": {
+            "Main": 80,
+            "Echo": 81,
+            "Http": 82
+        },
+        "log": {
+            "Inner": 90,
+            "Echo": 91
+        },
+        "roommgr": {
+            "Broadcast": 100,
+            "Outer": 101,
+            "Inner": 102,
+            "Echo": 103
+        },
+        "gate": {
+            "Inner": 200,
+            "Echo": 201,
+            "Outer": 202
+        },
+        "scene": {
+            "Inner": 300,
+            "Echo": 301
+        },
+        "room": {
+            "Inner": 400,
+            "Echo": 401,
+            "Outer": 402
+        },
+        "roomdb": {
+            "Broadcast": 450,
+            "Inner": 451,
+            "Echo": 452,
+            "Wake": 453
+        }
+    }
+}

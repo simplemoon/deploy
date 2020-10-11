@@ -1,7 +1,11 @@
 package report
 
 import (
-	"github.com/simplemoon/deploy/conf"
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
 )
 
 const (
@@ -14,11 +18,11 @@ const (
 
 // 详细信息
 type RowInfo struct {
-	ServerIdx  int    `json:"idx"`     // 目录的序号
-	Action     string `json:"act"`     // 命令名称
-	ActionType string `json:"type"`    // 命令类型
-	State      string `json:"state"`   // 状态
-	Msg        string `json:"message"` // 输出信息
+	ServerIdx  int         `json:"idx"`     // 目录的序号
+	Action     string      `json:"act"`     // 命令名称
+	ActionType string      `json:"type"`    // 命令类型
+	State      string      `json:"state"`   // 状态
+	Msg        interface{} `json:"message"` // 输出信息
 }
 
 // 返回的结果
@@ -30,17 +34,17 @@ type ResponseResult struct {
 }
 
 // 创建一个结果数据
-func NewResult() *ResponseResult {
+func NewResult(project int, version string) *ResponseResult {
 	return &ResponseResult{
 		Code:       ResponseCodeSuccess,
 		Details:    make([]RowInfo, 0),
-		Production: conf.GetProject(),
-		Version:    conf.GetVersion(),
+		Production: project,
+		Version:    version,
 	}
 }
 
 // 报告错误的实例
-func NewErrReport(msg string) *ResponseResult {
+func NewErrReport(msg string, project int, version string) *ResponseResult {
 	r := &ResponseResult{
 		Code: ResponseCodeFailed,
 		Details: []RowInfo{
@@ -52,8 +56,8 @@ func NewErrReport(msg string) *ResponseResult {
 				Msg:        msg,
 			},
 		},
-		Production: conf.GetProject(),
-		Version:    conf.GetVersion(),
+		Production: project,
+		Version:    version,
 	}
 	return r
 }
@@ -96,7 +100,58 @@ func (r *ResponseResult) AddRows(rows []RowInfo) {
 	}
 }
 
+// 获取状态
+func (r *ResponseResult) GetResult() string {
+	if r.Code == ResponseCodeSuccess {
+		return Success
+	}
+	return Failed
+}
+
 // 报告结果
-func (r *ResponseResult) Report() {
-	// TODO: TO REPORT RESULT TO STDERR OR WEB OSS
+func (r *ResponseResult) Report(url string, model bool) error {
+	content, err := json.Marshal(r)
+	if err != nil {
+		return err
+	}
+	// 是否是远程模式
+	if model {
+		_, err = os.Stderr.Write(content)
+	} else {
+		ret, err := http.Post(url, "application/json", bytes.NewReader(content))
+		if err != nil {
+			return err
+		}
+		if ret.StatusCode != 200 {
+			return fmt.Errorf("send %v to %s failed, code: %d", content, url, ret.StatusCode)
+		}
+	}
+	return err
+}
+
+// 报告结果
+func (r *ResponseResult) DingNotify(url, gameId, action string, serverId int) error {
+	// 发送钉钉通知
+	// 写入对应的数据
+	ddInfo := map[string]interface{}{
+		"type":     "Ops",
+		"serverId": serverId,
+		"message":  fmt.Sprintf("%s %s", r.Version, r.GetResult()),
+		"action":   action,
+		"gameId":   gameId,
+	}
+	// 获取对应的数据
+	content, err := json.Marshal(ddInfo)
+	if err != nil {
+		return fmt.Errorf("marshal info %v err %v", ddInfo, err)
+	}
+	// 发送消息
+	ret, err := http.Post(url, "application/json", bytes.NewReader(content))
+	if err != nil {
+		return err
+	}
+	if ret.StatusCode != 200 {
+		return fmt.Errorf("send %v to %s failed, code: %d", content, url, ret.StatusCode)
+	}
+	return nil
 }

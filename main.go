@@ -1,11 +1,11 @@
-package deploy
+package main
 
 import (
+	"sync"
+
 	"github.com/simplemoon/deploy/cmds"
 	"github.com/simplemoon/deploy/conf"
-	"github.com/simplemoon/deploy/log"
 	"github.com/simplemoon/deploy/utils"
-	"sync"
 )
 
 // 同步执行
@@ -19,8 +19,8 @@ func syncRun(cl *cmds.CommandList, count int) {
 		go func(idx int) {
 			// 释放token
 			defer func() {
-				wg.Done()
 				<-token
+				wg.Done()
 			}()
 			// 执行对应的逻辑
 			cl.Exec(conf.GetDataSet(idx))
@@ -38,19 +38,19 @@ func main() {
 	// 加载所有的数据
 	err := conf.LoadAll()
 	if err != nil {
-		log.FormatErr(err)
+		conf.FormatErr(err)
 		return
 	}
 	// 创建一个执行的队列
 	cmdList, err := cmds.NewCommandList(conf.GetActions())
 	if err != nil {
-		log.FormatErr(err)
+		conf.FormatErr(err)
 		return
 	}
 	// 创建一些必要的文件夹
-	err = utils.CreateDirs()
+	err = utils.PrepareDirs()
 	if err != nil {
-		log.FormatErr(err)
+		conf.FormatErr(err)
 		return
 	}
 	// 获取所有的配置
@@ -64,7 +64,7 @@ func main() {
 		syncRun(cmdList, count)
 	// 木有执行单元
 	default:
-		log.FormatErr("do not have exec server config")
+		conf.FormatErr("do not have exec server config")
 		return
 	}
 }

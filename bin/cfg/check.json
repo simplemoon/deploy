@@ -1,0 +1,40 @@
+{
+    "sd_game": {
+        "Main": {
+            "ServerID": "$serverId"
+        },
+        "Platform": {
+            "Addr": "$worldPlatformIp",
+            "Port": "$worldPlatformPort",
+            "Inuse": "$isWorldPlatform"
+        }
+    },
+    "sd_gm": {
+        "RPC": {
+            "addr": "$innerIp",
+            "port": "$adminPort"
+        }
+    },
+    "sd_gate": {
+        "ResetCnt": "$entryNum",
+        "Outer": {
+            "Addr": "0.0.0.0",
+            "Port": "*entryPorts"
+        }
+    },
+    "sd_room": {
+        "ResetCnt": "$roomNum",
+        "Room_Outer": {
+            "Addr": "0.0.0.0",
+            "Port": "*roomPorts"
+        }
+    },
+    "sd_roommgr": {
+        "Main": {
+            "PlatformID": "$platformId"
+        },
+        "Platform_Outer": {
+            "Addr": "$innerIp"
+        }
+    }
+}

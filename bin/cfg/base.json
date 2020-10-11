@@ -1,10 +1,5 @@
 {
-    "maxConnects": 2000,
-    "maxPlayer": 3000,
-    "enableQueue": "true",
     "clientMinVer": 1,
-    "encodeKey": "C9DC8B7A",
-    "msgSize": 10485736,
     "zoneId": "${zoneId}",
     "serverName": "s${serverId}",
     "verifyUrl": "${chargeApi}/gs/v1/server/${serverId}/verifyClient",
